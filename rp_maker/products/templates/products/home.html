@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %} <!– the content inside this goes to base template –>
+{% load staticfiles %}
+<br />
+{% for product in products.all%}
+<!--#48556D-->
+<br />
+<style>
+    .card 
+  {
+      width: 100%;
+      padding: 15px;
+      transform: translateX(0px) rotateY(25deg) rotateX(10deg);
+      display: flex;
+      position: relative;
+      background: linear-gradient(to right, #44a08d, #093637);
+      transition: 0.3s;
+      border-radius: 5px;
+      box-shadow: 0 1rem 1rem;
+      border: none;
+  }
+  .card:hover 
+  {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  }
+</style>
+<div class="parallax">
+    <br />
+    <br />
+    <br />
+
+<div class="card">
+    <div class="col-3" onclick="window.location='{% url 'detail' product.id %}';" style="cursor: pointer;">
+        <img src="{{product.icon.url}}" class="img-fluid" />
+    </div>
+    <div class="col-10" onclick="window.location='{% url 'detail' product.id %}';" style="cursor: pointer;">
+        <h1><font face="Colleged" size="8" color="whitesmoke" >{{product.title}}</font></h1>
+        <p><font face="Colleged" size="4" color="whitesmoke" >{{product.summary}}</font></p>
+    </div>
+    <br />
+</div>
+</div>
+{% endfor %}
+{% endblock %}

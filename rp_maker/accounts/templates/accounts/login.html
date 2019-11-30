@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% block content %} <!-- the content inside this goes to base template -->
+{% if error %}
+{{error}}
+<br />
+<br />
+{% endif %}
+<br />
+<br />
+<style>
+  #ip1 
+  {
+    outline:none;
+    border-top:transparent;
+    border-left:transparent;
+    border-right:transparent;
+    border-radius: 10px;
+    width: 250px;
+    height: 50px; 
+    background: transparent;
+    color:black; 
+  }
+  .card 
+  {
+    display: flex;
+    height: 480px;
+    width: 800px;
+    background: url("https://media.istockphoto.com/vectors/man-at-computer-filling-online-questionnaire-form-survey-vector-flat-vector-id941665020?k=6&m=941665020&s=612x612&w=0&h=UPjg-Tn3HuEtrKfC3hwTlstZbzTfCb1bEts9VlDz-Qs=");
+    border-radius: 10px;
+    /*   margin-left: -50px; */
+    transition: 0.4s ease-out;
+    position: relative;
+    box-shadow: 0 1rem 1rem;
+    background-position: left; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: 50% 100%;/* Resize the background image to cover the entire container */
+    background-color: #87CEEB;
+    border: none;
+  }
+  .btn
+  {
+    background: black;
+    border-radius: 10px;
+    width: 250px;
+    height: 50px;
+    outline:none;
+    border:none;
+    color: whitesmoke;
+  }
+  .btn:hover
+  {
+    border:none;
+  }
+  .footer{
+    visibility: hidden;
+  }
+  .div2
+  {margin-right: 35px;}
+  .div3
+  {margin-right: 70px;}
+  .navbar{
+      position: fixed;
+          width: 15%;
+          height: 10%;
+          background-color: rgb(8, 8, 8);
+      }
+</style>
+<br />
+<div align="center">
+  <div class="card">
+      <div align="right" class="div2">
+    <br />
+    <br />
+    <br /> 
+    <h1 class="div3"><font face="Colleged" color="black">SIGN IN</font></h1>
+    <br />
+    <form method="POST" action="{% url 'login' %}">
+      {% csrf_token %} 
+      <br />
+      <input type="text" name="username" id="ip1" placeholder="   username"/>
+      <br />
+      <br />
+      <br />
+      <input type="password" name="password" id="ip1" placeholder="   password"/>
+      <br />
+      <br />
+      <br />
+      <input class="btn btn-primary" type="submit" value="Login" />
+      <br />
+      <br />
+      <br />
+    </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

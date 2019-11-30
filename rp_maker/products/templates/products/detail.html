@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% block content %} <!– the content inside this goes to base template  –>
+{% load staticfiles %} 
+<br/>
+<style>
+  .card 
+  {
+    padding: 15px;
+    display: flex;
+    box-shadow: 0rem 1rem 1rem #000;
+    border-radius: 5px; 
+    background: linear-gradient(to right, #44a08d, #093637);
+    color:whitesmoke;
+  }
+  .card:hover 
+  {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  .btn
+  {
+    background: black;
+    border-radius: 10px;
+    width: 320px;
+    height: 50px;
+    outline:none;
+    border:none;
+    color: whitesmoke;
+  }
+  .btn:hover
+  {
+    border:none;
+  }
+  .footer{
+    visibility: hidden;
+  }
+</style>
+<body>
+    <div class="card">
+      <div class="row">
+          <div class="col-2">
+              <img src="{{product.icon.url}}" class="img-fluid"/>
+          </div>
+          <div class="col-10">
+              <a href="{{product.url}}"><h1><font face="Colleged" color="whitesmoke">Visit the article</font></h1></a>
+          </div>
+      </div>
+      <br/>
+      <div class="row">
+          <div class="col-8">
+              <img src="{{product.image.url}}" class="img-fluid"/>
+          </div>
+          <div class="col-4"> 
+              <a href="javascript:{document.getElementById('upvote').submit()}"><button class="btn btn-primary btn-lg btn-block">Upvote (current votes={{product.votes_total}})</button></a>
+          </div>
+      </div>
+      <br/>
+      <div class="row">
+          <div class="col-4">
+              <h4>created by {{product.hunter.username}}</h4>
+          </div>
+          <div class="col-4 text-right">
+              <h4>on {{product.pub_date}}</h4>
+          </div>
+      </div>
+      <br/>
+      <div class="row">
+      </div>
+      <form id="upvote" method="POST" action="{% url 'upvote' product.id %}">
+          {% csrf_token%}
+          <input type="hidden">
+      </form>
+    </div>
+</body>
+{% endblock %}

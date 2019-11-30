@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block content %} <!-- the content inside this goes to base template -->
+{% load staticfiles %}
+<style>
+  p 
+  {
+      margin-left: 20px;
+      margin-right: 20px;
+  }
+  .p2 
+  {
+      margin-left: 300px;
+      margin-right: 300px;
+  }
+  .card 
+  {
+      width: 800px;
+      padding: 15px;
+      transform: translateX(0px) rotateY(25deg) rotateX(10deg);
+      display: flex;
+      position: relative;
+      background: linear-gradient(to right, #c31432, #240b36);
+      transition: 0.3s;
+      border-radius: 5px;
+      box-shadow: 0 1rem 1rem;
+      border: none;
+  }
+  .footer
+  {
+      visibility: hidden;
+  }
+</style>
+<br />
+<br />
+<div class="card">
+  <div class="container" align="left">
+      <p class="p2"><img src="{% static 'ig2.png' %}" height=80 width=80 class="d-inline-block alighn-top" /></p>
+      <p><font face="Colleged" size="8" color="whitesmoke" >Share articles from across the net </font></p>
+  </div>
+</div>
+<br />
+<br />
+<div class="container" align="right">
+<div class="card">
+  <div class="container" align="right">
+      <p class="p2"><img src="{% static 'i1.png' %}" height=80 width=80 class="d-inline-block alighn-top" /></p>
+      <p><font face="Colleged" size="8" color="whitesmoke"> Read articles shared by other users</font></p>
+  </div>
+</div>
+</div>
+<br />
+<br />
+<div class="card">
+  <div class="container" align="left">
+      <p class="p2"><img src="{% static 'ig3.png' %}" height=80 width=80 class="d-inline-block alighn-top" /></p>
+      <p><font face="Colleged" size="8" color="whitesmoke">Upvote the ones you like the most </font></p>
+  </div>
+</div>
+<br />
+<br />
+{% endblock %}

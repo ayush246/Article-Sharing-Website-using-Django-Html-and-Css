@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% block content %} <!-- the content inside this goes to base template -->
+{% if error %}
+{{error}}
+<br />
+<br />
+{% endif %}
+<br />
+<br />
+<style>
+
+  #ip1 
+  {
+    outline:none;
+    border-left: transparent;
+    border-right: transparent;
+    border-top: transparent;
+    border-radius: 10px;
+    width: 250px;
+    height: 35px; 
+    background: transparent;
+    color:black;   
+  }
+  .card 
+    {
+      display: flex;
+      height: 700px;
+      width: 800px;
+      background: url("https://media.istockphoto.com/vectors/online-news-blog-post-or-newspaper-on-news-website-flat-vector-news-vector-id966390882?k=6&m=966390882&s=612x612&w=0&h=CDpBJr1D1nEFkqOS9V-X0VHDBMvJZPqYkEwr78yuIGc=");
+      border-radius: 10px;
+      /*   margin-left: -50px; */
+      transition: 0.4s ease-out;
+      position: relative;
+      background-position: left; /* Center the image */
+      background-repeat: no-repeat; /* Do not repeat the image */
+      background-size: 50% 100%; /* Resize the background image to cover the entire container */
+      background-color:#7fffd4;
+      border: none;
+      box-shadow: 0 1rem 1rem;
+    }
+  .btn
+  {
+    background: black;
+    border-radius: 10px;
+    width: 250px;
+    height: 50px;
+    outline:none;
+    border:none;
+    color: whitesmoke;
+  }
+  .btn:hover
+  {
+    border:none;
+  }
+  .footer{
+    visibility: hidden;
+  }
+  .div2
+  {margin-right: 30px;}
+  .div3
+  {margin-right: 175px;}
+</style>
+  <div align="center">
+    <div class="card">
+        <div align="right" class="div2">
+    <br />
+    <br />
+    <h1 class="div2"><font face="Colleged" color="black">FILL FORM</font></h1>
+    <br />
+    <form method="POST" action="{% url 'create' %}" enctype="multipart/form-data">
+      {% csrf_token %} <!-- used for security purposes -->
+      <br />
+      <input type="text" name="title" id="ip1" placeholder="Article's title"/>
+      <br />
+      <br />
+      <br />
+      <input type="textbox" name="body" id="ip1" placeholder="What is it all about"/>
+      <br />
+      <br />
+      <br />
+      <input type="text" name="url" id="ip1" placeholder="Link to article"/>
+      <br />
+      <br />
+      <h6 class="div3"><font face="Colleged" color="black">Thumbnail :</font> </h1>
+      <br />
+      <input type="file" name="icon" id="ip1"/>
+      <br />
+      <br />
+      <h6 class="div3"><font face="Colleged" color="black">Screenshot :</font></h6>
+      <br />
+      <input type="file" name="image" id="ip1"/>
+      <br />
+      <br />
+      <br />
+      <input class="btn btn-primary" type="submit" value="Submit the details" />
+      <br />
+      <br />
+    </form>
+        </div>
+    </div>
+  </div>
+{% endblock %}
