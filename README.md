@@ -22,4 +22,3 @@
 
 ### Users can review each article , see the ones they like in detail and upvote their favourite article
 ![6](https://user-images.githubusercontent.com/37112252/69032673-131bf380-0a03-11ea-97fa-781c51f251f5.png)
-![5](https://user-images.githubusercontent.com/37112252/69032671-11523000-0a03-11ea-8b44-e1f5600adbd1.png)
